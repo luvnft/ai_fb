@@ -11,6 +11,9 @@ dependencies:
   '@mintbase-js/react':
     specifier: 0.5.0-beta.2
     version: 0.5.0-beta.2(borsh@0.7.0)(graphql@16.7.1)(typescript@5.1.6)
+  '@mintbase-js/sdk':
+    specifier: 0.5.0-beta.2
+    version: 0.5.0-beta.2
   '@mintbase-js/storage':
     specifier: 0.5.0-beta.2
     version: 0.5.0-beta.2

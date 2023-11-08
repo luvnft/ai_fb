@@ -7,6 +7,9 @@ import { useFirstToken } from "@/hooks/useFirstToken";
 import { FeedScroll } from "./feed/feedscroll";
 import { MemoizedImageThumb } from "./feed/ImageThumb";
 import { useBlockedNfts } from "@/hooks/useBlockedNfts";
+import { useWallet } from '@mintbase-js/react';
+import { execute, mint, MintArgs } from '@mintbase-js/sdk';
+import { useApp } from "@/providers/app";
 
 export const HomePage = () => {
 
@@ -14,7 +17,9 @@ export const HomePage = () => {
   const audioRef = useRef(null);
   const audioBlob = useRef(null);
   const [musicInput, setMusicInput] = useState("");
+  const test = useRef(null);
 
+  const { mintImage } = useApp();
 
 
   const { newToken, tokensFetched, isLoading } = useFirstToken();
@@ -61,6 +66,12 @@ export const HomePage = () => {
         console.log("url: ", url);
         audioBlob.current = url;
         setAudioUrl(url);
+        
+
+        const base64Data = await blobToBase64(result);
+        test.current = base64Data;
+        console.log("base64Data: ", base64Data);
+
         return result;
       }
       catch(e){
@@ -68,6 +79,30 @@ export const HomePage = () => {
       }
   }
 
+
+    function blobToBase64(blob) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = function () {
+          const base64Data = reader.result.split(",")[1];
+          resolve(base64Data);
+        };
+        reader.onerror = function (error) {
+          reject(error);
+        };
+        reader.readAsDataURL(blob);
+      });
+    }
+
+  async function up_load() {
+
+  }
+
+  const handleMint = async (): Promise<void> => {
+
+  
+
+  }
 
   return (
     <>
@@ -117,16 +152,24 @@ export const HomePage = () => {
         <button onClick={() => query(musicInput)}>Generate Music</button>
           
         {
-          audioBlob.current ? 
-          <>
+        audioBlob.current ? 
+        <>
         
-        <audio controls>
-          <source src={audioUrl} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio> 
+          <audio controls>
+            <source src={audioUrl} type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio> 
 
+        <button onClick={handleMint}>Mint</button>
 
-            </>: 
+        <button
+              className="gradientButton w-full text-primaryBtnText rounded px-4 py-2"
+              onClick={async () => {
+                console.log(test.current);
+                await mintImage(audioUrl)
+                console.log("done");
+              } }> Upload </button>
+        </>: 
             <>
             </>
         }

@@ -154,18 +154,24 @@ const useMintImage = () => {
   };
 
   const mintImage = async (photo: string) => {
+    console.log("photo: ", photo);
     if (!activeAccountId) {
       setError("Active account ID is not set.");
       return;
     }
-
+ 
     setLoading(true);
 
     try {
+      
       const wallet = await getWallet();
-      const photoFile = convertBase64ToFile(photo);
-      const replicatePhoto = await reduceImageSize(photo, 10); //10MB limit replicate
-      const titleAndDescription = await getTitleAndDescription(replicatePhoto);
+      //const photoFile = convertBase64ToFile(photo);
+     // console.log("uploadedData: ", photoFile);
+      //const replicatePhoto = await reduceImageSize(photo, 10); //10MB limit replicate
+      const photoFile = photo;
+
+
+      const titleAndDescription = await getTitleAndDescription(photoFile);
       const refObject = {
         title: titleAndDescription.title,
         description: titleAndDescription.description,
