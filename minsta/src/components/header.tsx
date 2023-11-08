@@ -87,7 +87,10 @@ const Header = () => {
           Minting is closed. Thanks to everyone who participated.
         </div>
       ) : null}
+
+
     </>
+
   );
 };
 

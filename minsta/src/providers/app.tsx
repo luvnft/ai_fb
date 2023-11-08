@@ -76,6 +76,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
+    
       {" "}
       <style jsx global>{`
         html {

@@ -23,6 +23,7 @@ export default function CameraPage() {
 
   return (
     <>
+   
       <main className="h-camera overflow-hidden	 w-screen flex items-center justify-center">
         <div className="h-1/2 relative m-camera">
           {!!cameraLoaded && (
