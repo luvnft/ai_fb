@@ -4,7 +4,7 @@
 
 Welcome to the AI Music Generation project powered by FacebookMusicGen, Hugging Face, and Next.js. This project leverages cutting-edge AI technology to create beautiful and unique music compositions. In addition to AI music generation, we utilize Near blockchain and the Mintbase library for minting and storing your music creations securely.
 
-Also there is integration of arora smartcontract which can call near smartcontract for EVM developers.
+Also there is integration of arora smartcontract which can call near smartcontract(mint functionality)for EVM developers. 
 
 Website Link: https://nearcon-hackathon.vercel.app/
 
