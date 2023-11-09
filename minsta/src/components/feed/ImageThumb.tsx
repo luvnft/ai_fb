@@ -2,17 +2,37 @@
 
 import React, { useState } from "react";
 import { constants } from "@/constants";
-
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 const ImageThumb = ({ token, index }: any) => {
   const imageUrl = token?.media;
+  console.log("imageUrl: ", imageUrl);
   const [error, setError] = useState(false);
 
   const handleError = () => {
     setError(true);
   };
+
+
+    const [audioUrl, setAudioUrl] = useState(''); 
+    const audioRef = useRef(null);
+   // setAudioUrl(imageUrl)
+    const handleAudioChange = (event) => {
+      setAudioUrl(event.target.value);
+    };
+  
+    const handlePlay = () => {
+      audioRef.current.play();
+    };
+  
+    const handlePause = () => {
+      audioRef.current.pause();
+    };
+
+
+
 
   if (error)
     return (
@@ -35,7 +55,8 @@ const ImageThumb = ({ token, index }: any) => {
           rel="noopener noreferrer"
           passHref
         >
-          <Image
+  
+          {/*<Image
             key={token?.metadata_id}
             src={`https://image-cache-service-z3w7d7dnea-ew.a.run.app/thumbnail?url=${imageUrl}`}
             alt={`Token ${index}`}
@@ -48,8 +69,20 @@ const ImageThumb = ({ token, index }: any) => {
             placeholder="empty"
 
             unoptimized
-          />
-          <button
+    />*/}
+
+
+<div>
+      <button onClick={handlePlay}>Play</button>
+      <button onClick={handlePause}>Pause</button>
+      <audio ref={audioRef}>
+        <source src={imageUrl} />
+      </audio>
+    </div>
+
+
+
+          {/* <button
             className="absolute top-3 right-3 bg-black text-white rounded p-1 text-xs px-2 py-1.5"
             onClick={(e) => {
               e.preventDefault();
@@ -60,7 +93,7 @@ const ImageThumb = ({ token, index }: any) => {
             }}
           >
             Share
-          </button>
+          </button> */}
         </Link>
       </div>
     );

@@ -115,6 +115,7 @@ export const HomePage = () => {
               className="md:aspect-square rounded overflow-x-hidden cursor-pointer sm:w-full md:w-72 h-72 xl:w-80 xl:h-80 relative"
               key={1}
             >
+              
               <div className="rounded animate-pulse w-full h-full bg-gray-600 dark:bg-gray-800" />
             </div>
           ) : !firstTokenisBlocked ||
@@ -146,10 +147,10 @@ export const HomePage = () => {
     
 
 
-        <h1>GENERATE AI MUSIC</h1>
-        <label >ENTER PROMPT</label>
-        <input type="text" placeholder="AI prompt" value={musicInput} onChange={(e) => setMusicInput(e.target.value)} />
-        <button onClick={() => query(musicInput)}>Generate Music</button>
+        <h1 className="title_">GENERATIVE AI MUSIC</h1>
+        <label className="label_">ENTER PROMPT</label>
+        <input className="text_" type="text" placeholder="Enter AI prompt" value={musicInput} onChange={(e) => setMusicInput(e.target.value)} />
+        <button className="btn_ button-89" onClick={() => query(musicInput)}>Generate Music</button>
           
         {
         audioBlob.current ? 
@@ -179,6 +180,8 @@ export const HomePage = () => {
     </>
   );
 };
+
+
 
 
 
