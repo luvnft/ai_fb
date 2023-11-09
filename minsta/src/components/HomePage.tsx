@@ -12,6 +12,7 @@ import { execute, mint, MintArgs } from '@mintbase-js/sdk';
 import { useApp } from "@/providers/app";
 import ai from '../../public/images/ai.jpg';
 import Image from 'next/image';
+const { NFTStorage, File } = require('nft.storage');
 
 export const HomePage = () => {
 
@@ -63,11 +64,43 @@ export const HomePage = () => {
         
       );
         const result = await response.blob();
+
+
+
+
+
+        const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDVGYzA0NTUyMzI5ODA5NDI4NDkzY0VDYjdmZkY4RkUxNGY5YkQzOTQiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY4OTk2NjA0NzY5NiwibmFtZSI6IlBhcmlzIn0.9CxIio0ygPmcf8onnQcFrZurTQACHiB8qOgO6tcHEWs"; 
+        const storage = new NFTStorage({ token: apiKey });
+  
+        const blob = new Blob([result], { type: "audio/wav" });
+        //console.log("blob", blob);
+  
+        const file = new File([result], "AI.wav", { type: "audio/wav" });
+        const cid = await storage.storeBlob(file)
+        console.log({ cid })
+
+        const fullurl = "https://ipfs.io/ipfs/" + cid;
+        console.log("fullurl: ", fullurl);
+        // const metadata = await storage.store({
+        //   name: "x",
+        //   description: "x",
+        //   image: file,
+        // }); 
+        
+        // console.log("metadata ", metadata);
+        // console.log("metadata ", metadata.url);
+
+
+
+
+
+
+
         console.log("Response: ", result);
         const url = URL.createObjectURL(result);
         console.log("url: ", url);
-        audioBlob.current = url;
-        setAudioUrl(url);
+        audioBlob.current = fullurl;
+        setAudioUrl(fullurl);
         
 
         const base64Data = await blobToBase64(result);
