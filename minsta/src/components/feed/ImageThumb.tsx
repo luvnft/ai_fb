@@ -8,7 +8,8 @@ import Link from "next/link";
 
 const ImageThumb = ({ token, index }: any) => {
   const imageUrl = token?.media;
-  console.log("imageUrl: ", imageUrl);
+
+  console.log("imageUrl: ", token);
   const [error, setError] = useState(false);
 
   const handleError = () => {
@@ -77,15 +78,17 @@ const ImageThumb = ({ token, index }: any) => {
     />*/}
 
           
-          <div className="msic">
+          {/* <div className="msic">
             <button onClick={handlePlay}>Play</button>
             <button onClick={handlePause}>Pause</button>
             <audio ref={audioRef}>
               <source src={imageUrl} />
             </audio>
-          </div>
+          </div> */}
 
-
+          <audio src={imageUrl} controls  />
+          
+          <h1 className="tid">{`Token ID: ${token.id}`}</h1>
 
           {/* <button
             className="absolute top-3 right-3 bg-black text-white rounded p-1 text-xs px-2 py-1.5"
