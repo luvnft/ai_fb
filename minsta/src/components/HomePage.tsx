@@ -10,6 +10,8 @@ import { useBlockedNfts } from "@/hooks/useBlockedNfts";
 import { useWallet } from '@mintbase-js/react';
 import { execute, mint, MintArgs } from '@mintbase-js/sdk';
 import { useApp } from "@/providers/app";
+import ai from '../../public/images/ai.jpg';
+import Image from 'next/image';
 
 export const HomePage = () => {
 
@@ -103,12 +105,65 @@ export const HomePage = () => {
   
 
   }
+  const imageStyle = {
+    border: '4px solid #000', // You can adjust the border size and color here
+  };
 
   return (
     <>
 
 
       <main className="px-4 lg:px-12 mx-auto flex flex-col items-center justify-center space-y-4 ">
+
+
+      <h1 className="title_">GENERATIVE AI MUSIC</h1>
+      <Image
+        src={ai}
+        alt="My Image"
+        width={300}
+        height={200}
+        style={imageStyle}
+      />
+        <label className="label_ flashing">ENTER PROMPT</label>
+        <input className="text_" type="text" placeholder="Enter AI prompt" value={musicInput} onChange={(e) => setMusicInput(e.target.value)} />
+        <button className="btn_ button-89" onClick={() => query(musicInput)}>Generate Music</button>
+          
+        {
+        audioBlob.current ? 
+        <>
+        
+          <audio controls>
+            <source src={audioUrl} type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio> 
+
+        {/* <button className="mint_btn" onClick={handleMint}>Mint</button><br/> */}
+
+        <button 
+              className="button-86"
+              onClick={async () => {
+                console.log(test.current);
+                await mintImage(audioUrl)
+                console.log("done");
+              } }> Mint </button>
+             <br/>
+             <br/> 
+             <br/>
+             <br/>
+
+        </>: 
+            <>
+            </>
+        }
+
+
+<br/>
+             <br/> 
+             <br/>
+             <br/>
+             <br/> 
+             <br/>
+             <br/>
         <DynamicGrid mdCols={2} nColsXl={4} nColsXXl={6}>
           {!newToken?.media || isLoading ? (
             <div
@@ -147,38 +202,7 @@ export const HomePage = () => {
     
 
 
-        <h1 className="title_">GENERATIVE AI MUSIC</h1>
-        <label className="label_">ENTER PROMPT</label>
-        <input className="text_" type="text" placeholder="Enter AI prompt" value={musicInput} onChange={(e) => setMusicInput(e.target.value)} />
-        <button className="btn_ button-89" onClick={() => query(musicInput)}>Generate Music</button>
-          
-        {
-        audioBlob.current ? 
-        <>
         
-          <audio controls>
-            <source src={audioUrl} type="audio/mpeg" />
-            Your browser does not support the audio element.
-          </audio> 
-
-        {/* <button className="mint_btn" onClick={handleMint}>Mint</button><br/> */}
-
-        <button 
-              className="button-86"
-              onClick={async () => {
-                console.log(test.current);
-                await mintImage(audioUrl)
-                console.log("done");
-              } }> Mint </button>
-             <br/>
-             <br/> 
-             <br/>
-             <br/>
-
-        </>: 
-            <>
-            </>
-        }
 
     
       </main>
