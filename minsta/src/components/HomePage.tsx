@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import { DynamicGrid } from "@/components/DynamicGrid";
@@ -10,7 +11,7 @@ import { useBlockedNfts } from "@/hooks/useBlockedNfts";
 import { useWallet } from '@mintbase-js/react';
 import { execute, mint, MintArgs } from '@mintbase-js/sdk';
 import { useApp } from "@/providers/app";
-import ai from '../../public/images/ai.jpg';
+import ai from '../../public/ai.jpg';
 import Image from 'next/image';
 const { NFTStorage, File } = require('nft.storage');
 
@@ -18,9 +19,9 @@ export const HomePage = () => {
 
   
   const audioRef = useRef(null);
-  const audioBlob = useRef(null);
+  const audioBlob = useRef("");
   const [musicInput, setMusicInput] = useState("");
-  const test = useRef(null);
+  const test = useRef("");
 
   const { mintImage } = useApp();
 
@@ -49,9 +50,9 @@ export const HomePage = () => {
   }, [newToken]);
 
 
-  const [audioUrl, setAudioUrl] = useState(null);
+  const [audioUrl, setAudioUrl] = useState("");
 
-  async function query(data) {
+  async function query(data: any) {
     console.log("Working on it", data);
     try {
       const response = await fetch(

@@ -17,24 +17,6 @@ const ImageThumb = ({ token, index }: any) => {
   };
 
 
-    const [audioUrl, setAudioUrl] = useState(''); 
-    const audioRef = useRef(null);
-   // setAudioUrl(imageUrl)
-    const handleAudioChange = (event) => {
-      setAudioUrl(event.target.value);
-    };
-  
-    const handlePlay = () => {
-      audioRef.current.play();
-    };
-  
-    const handlePause = () => {
-      audioRef.current.pause();
-    };
-
-
-
-
   if (error)
     return (
   <>

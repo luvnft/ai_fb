@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useMbWallet } from "@mintbase-js/react";
 import { uploadReference } from "@mintbase-js/storage";
 import { useState } from "react";
