@@ -171,8 +171,9 @@ const useMintImage = () => {
       //const replicatePhoto = await reduceImageSize(photo, 10); //10MB limit replicate
 
       //const audioBlob = new Blob([photo], { type: 'audio/mp3' });
-      const photoFile = "https://sapphire-following-turkey-778.mypinata.cloud/ipfs/QmZ6Fmi4sm283swk91T2vz4tro6x6RGFBGvP6B5yG3fgYz?_gl=1*1cbn3eo*_ga*MTE1ODc1ODI2Ni4xNjk2NzI0ODMz*_ga_5RMPXG14TE*MTY5OTQ3MzE0NC4zLjEuMTY5OTQ3MzI1Ni4yNi4wLjA.";
-
+      //const photoFile = "https://sapphire-following-turkey-778.mypinata.cloud/ipfs/QmZ6Fmi4sm283swk91T2vz4tro6x6RGFBGvP6B5yG3fgYz?_gl=1*1cbn3eo*_ga*MTE1ODc1ODI2Ni4xNjk2NzI0ODMz*_ga_5RMPXG14TE*MTY5OTQ3MzE0NC4zLjEuMTY5OTQ3MzI1Ni4yNi4wLjA.";
+      const photoFile = photo;
+      console.log("photo: ", photo);
 
       const titleAndDescription = await getTitleAndDescription(photoFile);
       const refObject = {
