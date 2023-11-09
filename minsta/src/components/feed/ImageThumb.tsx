@@ -36,6 +36,8 @@ const ImageThumb = ({ token, index }: any) => {
 
   if (error)
     return (
+  <>
+      
       <div className=" aspect-square flex flex-wrap	 p-10 w-72 h-72 xl:w-80 xl:h-80 relative justify-center items-center text-center bg-gray-200 w-full">
         <div>
           <h1 className="w-full"> No Image Metadata</h1>
@@ -44,10 +46,13 @@ const ImageThumb = ({ token, index }: any) => {
           </p>
         </div>
       </div>
+      </>
     );
-
   if (imageUrl) {
     return (
+<>
+      
+
       <div className=" aspect-square  sm:w-full md:w-72 h-72 xl:w-80 xl:h-80 relative">
         <Link
           key={`${token?.metadata_id}-${index}`}
@@ -71,14 +76,14 @@ const ImageThumb = ({ token, index }: any) => {
             unoptimized
     />*/}
 
-
-<div>
-      <button onClick={handlePlay}>Play</button>
-      <button onClick={handlePause}>Pause</button>
-      <audio ref={audioRef}>
-        <source src={imageUrl} />
-      </audio>
-    </div>
+          
+          <div className="msic">
+            <button onClick={handlePlay}>Play</button>
+            <button onClick={handlePause}>Pause</button>
+            <audio ref={audioRef}>
+              <source src={imageUrl} />
+            </audio>
+          </div>
 
 
 
@@ -96,10 +101,12 @@ const ImageThumb = ({ token, index }: any) => {
           </button> */}
         </Link>
       </div>
+      </>
     );
   } else {
     return null;
   }
+  
 };
 
 export const MemoizedImageThumb = React.memo(ImageThumb);
