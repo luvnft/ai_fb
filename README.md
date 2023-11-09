@@ -4,6 +4,8 @@
 
 Welcome to the AI Music Generation project powered by FacebookMusicGen, Hugging Face, and Next.js. This project leverages cutting-edge AI technology to create beautiful and unique music compositions. In addition to AI music generation, we utilize Near blockchain and the Mintbase library for minting and storing your music creations securely.
 
+Website Link: https://nearcon-hackathon.vercel.app/
+
 <img src="./assets/ai.jpg" width="400" height="400">
 
 ## Table of Contents
@@ -37,6 +39,9 @@ Music has always been a powerful form of artistic expression, and now, with the 
 To start with this project:
 
 1. Clone the repository.
+    ```bash
+    git clone https://github.com/mxber2022/Nearcon_Hackathon
+    ```
 2. If you don't have `pnpm` installed, run:
 
    ```bash
