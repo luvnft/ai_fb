@@ -5,6 +5,7 @@
 Welcome to the AI Music Generation project powered by FacebookMusicGen, Hugging Face, and Next.js. This project leverages cutting-edge AI technology to create beautiful and unique music compositions. In addition to AI music generation, we utilize Near blockchain and the Mintbase library for minting and storing your music creations securely.
 
 ![AI Music Generation](./assets/ai.jpg)
+<img src={./assets/ai.jpg} width="400" height="300">
 
 ## Table of Contents
 
