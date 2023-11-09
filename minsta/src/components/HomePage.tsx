@@ -161,15 +161,20 @@ export const HomePage = () => {
             Your browser does not support the audio element.
           </audio> 
 
-        <button onClick={handleMint}>Mint</button>
+        {/* <button className="mint_btn" onClick={handleMint}>Mint</button><br/> */}
 
-        <button
-              className="gradientButton w-full text-primaryBtnText rounded px-4 py-2"
+        <button 
+              className="button-86"
               onClick={async () => {
                 console.log(test.current);
                 await mintImage(audioUrl)
                 console.log("done");
-              } }> Upload </button>
+              } }> Mint </button>
+             <br/>
+             <br/> 
+             <br/>
+             <br/>
+
         </>: 
             <>
             </>
