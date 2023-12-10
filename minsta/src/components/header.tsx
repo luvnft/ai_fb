@@ -51,7 +51,7 @@ const Header = () => {
           <div className="flex w-full justify-between px-4 lg:px-12  items-center">
             <div>
               <button className="font-bold text-xl" onClick={() => push("/")}>
-                {process.env.NEXT_PUBLIC_APP_TITLE || "Minsta"}
+                {process.env.NEXT_PUBLIC_APP_TITLE || "AI Music"}
               </button>
             </div>
             <div className="flex gap-4">
